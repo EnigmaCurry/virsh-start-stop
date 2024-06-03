@@ -13,7 +13,7 @@ def _libvirt_silence_error(*args):
 
 def _get_libvirt_machine(machine):
     libvirt.registerErrorHandler(f=_libvirt_silence_error, ctx=None)
-    conn = libvirt.open("qemu:///system")
+    conn = libvirt.open("qemu:///session")
     libvirt_machine = conn.lookupByName(machine)
     return libvirt_machine
 
